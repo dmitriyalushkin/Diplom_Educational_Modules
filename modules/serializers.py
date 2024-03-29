@@ -11,7 +11,8 @@ class ModuleSerializer(serializers.ModelSerializer):
         model = Module
         fields = '__all__'
         validators = [TitleValidator(field='name')]
-        serializers.UniqueTogetherValidator(fields=['name', 'description'], queryset=Module.objects.all())
+        serializers.UniqueTogetherValidator(fields=['name', 'description'],
+                                            queryset=Module.objects.all())
 
 
 class LessonSerializer(serializers.ModelSerializer):
